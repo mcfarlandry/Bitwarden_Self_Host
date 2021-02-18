@@ -16,10 +16,12 @@ services:
     ports:
       - "8080:80"
       - "443:443"
+    restart: on-failure
+    depends_on:
+      - bitwarden
     volumes:
       - ./data/nginx:/etc/nginx
       - ./data/ssl:/etc/ssl
-    restart: on-failure
 
   bw_backup:
     image: bruceforce/bw_backup:rpi3 #swap tag to latest to run on non-raspberrypi
