@@ -23,3 +23,6 @@ services:
       - ./data/nginx:/etc/nginx
       - ./data/ssl:/etc/ssl
     restart: on-failure
+    environment:
+      - NGINX_HOST=192.168.1.4
+      - NGINX_PORT=80
